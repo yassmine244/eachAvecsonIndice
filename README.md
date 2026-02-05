@@ -1,49 +1,67 @@
-# Exercices sur les fonctions et tableaux
+    # Exercices sur les fonctions et tableaux
 
-## 1. indexedExponentials
+    ## 1. indexedExponentials
 
-Écrire une fonction `indexedExponentials` qui prend un tableau de nombres en paramètre et retourne un nouveau tableau où chaque nombre est élevé à la puissance de son index.
-
-
-
-```javascript
-Exemple :
-function indexedExponentials(nombres) {
-
-}
-indexedExponentials([2, 5, 7, 4]) // => [2^0, 5^1, 7^2, 4^3] => [1, 5, 49, 64]
-
-```
-
-## 2. evenIndexedOddNumbers
-
-Écrire une fonction `evenIndexedOddNumbers` qui prend un tableau de nombres en paramètre et retourne un tableau contenant uniquement les nombres impairs qui se trouvent à un index pair.
-
-
-```javascript
-function evenIndexedOddNumbers(nombres) {
-
-}
-
-evenIndexedOddNumbers([1, 3, 3, 4, 7, 10]) // => [1, 3, 7]
-
-```
-
-## 3. evenIndexedEvenLengths
-
-Écrire une fonction `evenIndexedEvenLengths` qui prend un tableau de chaînes de caractères en paramètre et retourne uniquement les chaînes qui se trouvent à un index pair et qui ont une longueur paire.
+    Écrire une fonction `indexedExponentials` qui prend un tableau de nombres en paramètre et retourne un nouveau tableau où chaque nombre est élevé à la puissance de son index.
 
 
 
-```javascript
-function evenIndexedEvenLengths(chaines) {
+    ```javascript
+    Exemple :
+    function indexedExponentials(nombres) {
 
+    }
+    indexedExponentials([2, 5, 7, 4]) // => [2^0, 5^1, 7^2, 4^3] => [1, 5, 49, 64]
+
+    ```
+
+    ## 2. evenIndexedOddNumbers
+
+    Écrire une fonction `evenIndexedOddNumbers` qui prend un tableau de nombres en paramètre et retourne un tableau contenant uniquement les nombres impairs qui se trouvent à un index pair.
+
+
+    ```javascript
+    function evenIndexedOddNumbers(nombres) {
+    var resultat = [];
+
+    for (var i = 0; i < nombres.length; i++) {
+        if (i % 2 === 0 && nombres[i] % 2 !== 0) {
+            resultat.push(nombres[i]);
+        }
+    }
+
+    return resultat;
 }
 
 
-evenIndexedEvenLengths(['lion', 'monkey', 'aardvaark', 'cat', 'doge'])// => ['lion', 'doge']
-evenIndexedEvenLengths(['red', 'green', 'purple', 'blue', 'yellow']) // => ['purple', 'yellow']
-```
+    evenIndexedOddNumbers([1, 3, 3, 4, 7, 10]) // => [1, 3, 7]
+
+    ```
+
+    ## 3. evenIndexedEvenLengths
+
+    Écrire une fonction `evenIndexedEvenLengths` qui prend un tableau de chaînes de caractères en paramètre et retourne uniquement les chaînes qui se trouvent à un index pair et qui ont une longueur paire.
+
+
+
+    ```javascript
+    function evenIndexedEvenLengths(chaines) {
+    var resultat = [];
+
+    for (var i = 0; i < chaines.length; i++) {
+        if (i % 2 === 0 && chaines[i].length % 2 === 0) {
+            resultat.push(chaines[i]);
+        }
+    }
+
+    return resultat;
+}
+
+
+
+    evenIndexedEvenLengths(['lion', 'monkey', 'aardvaark', 'cat', 'doge'])// => ['lion', 'doge']
+    evenIndexedEvenLengths(['red', 'green', 'purple', 'blue', 'yellow']) // => ['purple', 'yellow']
+    ```
 
 ---
 
@@ -94,8 +112,15 @@ palindrome('hello') // => false
 
 ```javascript
 function chunk(tableau, taille) {
+    var resultat = [];
 
+    for (var i = 0; i < tableau.length; i += taille) {
+        resultat.push(tableau.slice(i, i + taille));
+    }
+
+    return resultat;
 }
+
 chunk([1, 2, 3, 4, 5], 2) // => [[1, 2], [3, 4], [5]]
 
 chunk([1, 2, 3, 4, 5], 3) // => [[1, 2, 3], [4, 5]]
@@ -108,8 +133,17 @@ chunk([1, 2, 3, 4, 5], 3) // => [[1, 2, 3], [4, 5]]
 
 ```javascript
 function flattenArray(tableaux) {
+    var resultat = [];
 
+    for (var i = 0; i < tableaux.length; i++) {
+        for (var j = 0; j < tableaux[i].length; j++) {
+            resultat.push(tableaux[i][j]);
+        }
+    }
+
+    return resultat;
 }
+
 flattenArray([[1, 2, 3], [4, 5], [6]]) // => [1, 2, 3, 4, 5, 6]
 ```
 
